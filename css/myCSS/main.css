@@ -1,0 +1,385 @@
+/* standard setups */
+body {
+	background-color: rgb(219, 244, 255);
+}
+
+.nopadding {
+	padding: 0;
+	margin: 0;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+/*main image "Sky" */
+#main-img-container {
+	height: 200px;
+	background-image: url("../../img/main-font.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar {
+	background-color: rgb(139, 164, 249);
+	height: 105px;
+}
+
+#navbar-flex-container {
+	display: flex;
+	margin-right: 20%;
+	align-items: center;
+}
+
+.navbar-flex-child {
+	flex: 2;
+}
+
+.navbar-flex-child:nth-child(4) {
+	flex: 1;
+}
+
+/* Navbar -> city form */
+input[name=city] {
+	width: 185px;
+	padding-left: 7px;
+	text-transform: capitalize;
+}
+
+#citiesDropdown {
+	width: 185px;
+	position: absolute;
+	background-color: white;
+	border: 0.5px rgb(128, 140, 160) solid;
+	z-index: 1;
+	max-height: 200px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+#citiesDropdown:hover {
+	overflow-y: scroll;
+}
+
+.citiesValues {
+	padding: 3px 0 3px 7px;
+	margin: 0;
+}
+
+.citiesValues:hover {
+	cursor: pointer;
+	font-weight: bold;
+	background-color: rgb(119, 165, 239);
+}
+
+/* Navbar -> visible city value (first input) */
+#cityVal {
+	width: 185px;
+}
+
+#cityVal label {
+	width: 37%;
+}
+
+#cityVal input {
+	width: 60.5%;
+}
+
+/* Navbar -> days form */
+input[name=days] {
+	width: 30px;
+	text-align: center;
+}
+
+/* Navbar -> Checkboxes */
+input[name=celsius], input[name=fahrenheit] {
+	cursor: pointer;
+}
+
+/* Navbar -> Error bar */
+
+#error-text-city {
+	color: red;
+	padding-left: 20.5px;
+}
+
+#error-text-temp {
+	color: red;
+}
+
+/* Navbar -> input error */
+.inputError {
+	border-color: red;
+}
+
+/*API files */
+/* Header - city name, dates, units of temperature */
+
+#weather-container {
+	cursor: default;
+	clear: both; /*navbar uses some floats on responsive design. Just in case */
+}
+
+#w-firstRow {
+	background-color: rgb(215, 226, 244);
+	border-bottom: 1px black solid;
+}
+
+/* Slider */
+#slider {
+	width: 100%;
+	height: 150px;
+	border: solid 1px black;
+	margin: 0 auto;
+	position: relative;
+}
+	
+#slider .slider-child {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.slider-child {
+	background: linear-gradient(to bottom right, rgb(204, 214, 232), rgb(110, 143, 201)); /* Standard syntax */
+	background-color: rgb(204, 214, 232); /* in case not supported */
+}
+
+
+#slider .slider-btn {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	font-size: 20px;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	top: 50%;
+}
+
+#slider .slider-btn:hover {
+	font-weight: bold;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+#slider #next {
+	position: relative;
+	float: right;
+}
+
+/* justification (created by me :)) */
+#justification {
+	height: 150px;
+	background-color: rgb(127, 176, 196);
+	border: solid 1px black;
+}
+
+#justification h3, #justification h1 {
+	margin: 14px auto 7px auto;
+	text-align: center;
+}
+
+#justification h3 {
+	font-family: 'Frijole', cursive;
+}
+
+#justification h1 {
+	font-family: 'Love Ya Like A Sister', cursive;
+}
+
+/* line chart */
+#chart-container {
+	height: 400px;
+}
+
+#lineChart {
+	height: 400px;
+	margin-bottom: 2.5%;
+}
+
+/* responsive design */
+@media only screen and (min-width: 936px) and (max-width: 1220px) {
+		/* city container */
+		#w-firstRow h2, #w-firstRow h3 {
+			font-size: 19px;
+		}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 935px) {
+		/* Navbar */
+		#navbar-flex-container {
+			margin-right: 0;
+		}
+
+		/* city container */
+		#w-firstRow h2, #w-firstRow h3 {
+			font-size: 15.9px;
+		}
+
+		/* slider */
+		#slider {
+			height: 115px; /* the same for #justification */
+		}
+
+		#sliderWrap h3 {
+			font-size: 18px;
+		}
+
+		#sliderWrap img {
+			width: 75px;
+			margin-top: -15px;
+		}
+
+		/* justification */
+		#justification {
+			height: 115px; /* the same for #slider */
+		}
+
+		/* line chart */
+		#chart-container {
+			height: 300px;
+		}
+
+		#lineChart {
+			height: 300px;
+		}
+	}
+	
+/* bootstrap screen xs */
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+		/* Navbar */
+		.navbar {
+			padding-bottom: 170px;
+		}
+
+		#navbar-flex-container {
+			display: block;
+		}
+
+		.navbar-flex-child:nth-child(n+2) {
+			float: right;
+			position: absolute;
+			margin-left: 50%;
+		}
+
+		.navbar-flex-child:nth-child(2) {
+			top: 5px;
+		}
+
+		.navbar-flex-child:nth-child(3) {
+			top: 40px;
+		}
+
+		.navbar-flex-child:nth-child(4) {
+			top: 80px;
+		}
+
+		#error-container {
+			clear: both;
+			margin-top: 50px;
+		}
+
+		/* city container */
+		#w-firstRow h2, #w-firstRow h3 {
+			font-size: 20px;
+		}
+
+		/* slider */
+		#slider {
+			height: 100px;
+		}
+
+		#sliderWrap h3 {
+			font-size: 15px;
+		}
+
+		#sliderWrap img {
+			width: 100px;
+			margin-top: -25px;
+		}
+
+		/* line chart */
+		#chart-container {
+			height: 250px;
+		}
+
+		#lineChart {
+			height: 250px;
+		}
+	}
+
+/* Smartphones */
+@media only screen and (min-width: 300px) and (max-width: 399px) {
+		/* Navbar */
+		.navbar {
+			padding-bottom: 225px;
+		}
+
+		#navbar-flex-container {
+			margin: auto;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.navbar-flex-child {
+			margin: 5px auto;
+		}
+
+		.navbar-flex-child:nth-child(1) {
+			order: 4;
+		}
+
+		/* city container */
+		#w-firstRow h2, #w-firstRow h3 {
+			font-size: 15px;
+		}
+
+		/* slider */
+		#slider {
+			height: 100px;
+		}
+
+		#sliderWrap h3 {
+			font-size: 12px;
+		}
+
+		#sliderWrap img {
+			width: 75px;
+			margin-top: -20px;
+		}
+
+		#slider .slider-btn {
+			top: 65%;
+		}
+
+		/* line chart */
+		#chart-container {
+			height: 200px;
+		}
+
+		#lineChart {
+			height: 200px;
+		}
+	}
+
+/* minimum just  */
+@media only screen and (max-width: 299px) {
+		/* body */
+		body {
+			width: 700px;
+		}
+
+		/* Navbar */
+		#navbar-flex-container {
+			margin: 0;
+		}
+
+		/* line chart */
+		#chart-container {
+			height: 100px;
+			width: 700px;
+		}
+	}

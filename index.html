@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MK - OpenWeatherMap</title>
+	<!-- Logo -->
+	<link rel="icon" type="image/png" href="img/openweathermap.png">
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+	<!-- Bootstrap CSS link -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+	<!-- My CSS file -->
+	<link rel="stylesheet" type="text/css" href="css/myCSS/main.css">
+</head>
+<body class="nopadding">
+	<!-- main image "sky" -->
+	<div class="container-fluid nopadding">
+		<div id="main-img-container" class="row nopadding">
+			
+		</div>
+	</div>
+
+	<!-- Navbar -->
+	<!-- child-1 for all divs, but child-2 only for the last button -->
+	<nav class="navbar navbar-light nopadding">
+		<form id="navbar-flex-container" class="navbar-form">
+			<div class="navbar-flex-child">
+				<div id="cityVal" class="nopadding">
+					<label>Your city: </label>
+					<input type="text" name="cityVal" readonly="readonly" />
+				</div>
+				<input type="text" name="city" autocomplete="off" placeholder="Type a city name here" />
+				<div id="citiesDropdown">
+					
+				</div>
+			</div>
+			<div class="navbar-flex-child">
+				<input type="text" name="days" value="5" readonly="readonly" />
+				<button type="button" name="up">&#9650;</button>
+				<button type="button" name="down">&#9660;</button>
+				<label>days</label>
+			</div>
+			<div class="navbar-flex-child">
+				<input type="checkbox" name="celsius"><label>Celsius</label>
+				<input type="checkbox" name="fahrenheit"><label>Fahrenheit</label>
+			</div>
+			<div class="navbar-flex-child">
+				<button type="button" name="submit">Get result</button>
+			</div>
+		</form>
+		<div id="error-container">
+			<p id="error-text-city" class="col-xs-6"></p>
+			<p id="error-text-temp" class="col-xs-6"></p>
+		</div>
+	</nav>
+	
+	<!-- Output of API -->
+	<div id="weather-container" class="container-fluid nopadding">
+		<!-- Weather tab - header -->
+		<div id="w-firstRow" class="row nopadding">
+			<div id="city-container" class="col-xs-12 col-sm-3 text-left">
+				
+			</div>
+			<div id="date-container" class="col-xs-12 col-sm-5 text-center">
+				
+			</div>
+			<div id="unit-container" class="col-xs-12 col-sm-4 text-right">
+				
+			</div>
+		</div>
+
+		<!-- Weather tab - table -->
+		<div id="w-secondRow" class="row nopadding">
+			<div id="table-container" class="col-xs-12 nopadding">
+
+			</div>
+		</div>
+
+		<!-- Weather tab -line chart -->
+		<div id="w-thirddRow" class="row nopadding">
+			<!-- Weather tab - slider -->
+			<div id="slider-container" class="col-sm-6 nopadding">
+				<div id="slider">
+					<div id="sliderWrap">
+						<div class="slider-child"></div> <!-- Keep just one otherwise computer cannot read .slider-child -->
+					</div>
+						<a href="#" class="slider-btn" id="prev" onclick="plusIndex(-1, event)">&#8810;</a>
+						<a href="#" class="slider-btn" id="next" onclick="plusIndex(1, event)">&#8811;</a>
+				</div>
+			</div>
+			<div id="justification" class="col-sm-6 nopadding">
+				<h3>Created by</h3>
+				<h1>Mihails Kuzmins</h1>
+			</div>
+		</div>
+
+		<div id="w-fourthRow" class="row nopadding">
+			<div id="chart-container" class="col-xs-12 col-sm-10 col-sm-push-1">
+				<canvas id="lineChart"></canvas>
+			</div>
+		</div>
+	</div>
+	
+
+<!-- jQuery link -->
+<script type="text/javascript" src="js/jQuery/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap JS file -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- TEST chart.js -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<!-- My JS file -->
+<script type="text/javascript" src="js/myJS/main.js"></script>
+</body>
+</html>
